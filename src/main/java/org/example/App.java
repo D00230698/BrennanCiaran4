@@ -34,7 +34,7 @@ public class App {
                 String [] StudentResultsObjects = str.split(",");
 
                 System.out.println(Arrays.toString(StudentResultsObjects));
-                
+                System.out.println("hello");
 
             }
             sc.close();
