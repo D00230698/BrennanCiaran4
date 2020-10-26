@@ -13,47 +13,48 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        readLineByLine("JC_Results.txt");
-
+        readWordByWord("JC_Results.txt");
+        getStudentNumber("JC_Results.txt");
     }
 
-    public static void readLineByLine(String file) {
-        System.out.println("Read and output text file line-by-line");
-
-
+    public static void readWordByWord(String file) {
+        System.out.println("Reading a text file word-by-word:");
 
         try {
             Scanner sc = new Scanner(new File(file));
 
-
             while (sc.hasNext()) {
-                int i = 0;
-
-                String str = sc.nextLine();
-
-                String [] StudentResultsObjects = str.split(",");
-
-                System.out.println(Arrays.toString(StudentResultsObjects));
-                System.out.println("hello");
-
+                String word = sc.next();
+                System.out.println(word);
             }
             sc.close();
+
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
 
     }
 
-    
-  /* public static int[] makeArrays (String[] args)
-    {
-        FileReader reader= new FileReader("JC_Results.txt");
+    public static void getStudentNumber(String file) {
+        try
+        {
 
-        while (reader.hasNext()) {
-                String str = sc.nextLine();
-                String[] parts = str.split(",");
-                String stud = parts[0];
-                for []
+            Scanner sc = new Scanner(new File(file));
 
-    } */
+            String str = sc.nextLine();
+            String[] parts = str.split(",");
+            int[] studNum = new int[parts.length];
+            for(int i = 0; i <= parts.length; i++)
+            {
+                studNum[i] = Integer.parseInt(parts[0]);
+            }
+
+            System.out.println(Arrays.toString(studNum));
+        }
+        catch (IOException e)
+        {
+            System.out.println(e.getMessage());
+        }
+
+    }
 }
